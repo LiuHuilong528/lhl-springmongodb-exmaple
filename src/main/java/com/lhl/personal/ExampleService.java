@@ -19,5 +19,4 @@ public class ExampleService implements Service {
 		log.info("ExampleService");
 		return "Hello world!";	
 	}
-
 }

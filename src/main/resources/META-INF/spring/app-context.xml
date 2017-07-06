@@ -2,10 +2,61 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.10.2.xsd">
 
 	<description>Example configuration to get you started.</description>
 
 	<context:component-scan base-package="com.lhl.personal" />
-</beans>
+
+
+  <mongo:mongo id="mongo" host="192.168.1.55" port="27018">
+    <mongo:options connections-per-host="8"
+                   threads-allowed-to-block-for-connection-multiplier="4"
+                   connect-timeout="1000"
+                   max-wait-time="1500"
+                   auto-connect-retry="true"
+                   socket-keep-alive="true"
+                   socket-timeout="1500"
+                   slave-ok="true"
+                   write-number="1"
+                   write-timeout="0"
+                   write-fsync="true"/>
+  </mongo:mongo>
+	<!-- 主从服务器设置 -->
+	<!-- <mongo:mongo id="replicaSetMongo" replica-set="127.0.0.1:27017,localhost:27018"/> -->
+	
+	<mongo:db-factory id="anotherMongoDbFactory"
+                  host="localhost"
+                  port="27018"
+                  dbname="tm"
+                  username="joe"
+                  password="secret"
+                  authentication-dbname="admin"
+                  />
+      <!-- 使用配置文件 properties 配置文件 -->            
+     <context:property-placeholder location="classpath:mongo.properties"/>
+	<mongo:mongo host="${mongo.host}" port="${mongo.port}">
+	  <mongo:options
+	     connections-per-host="${mongo.connectionsPerHost}"
+	     threads-allowed-to-block-for-connection-multiplier="${mongo.threadsAllowedToBlockForConnectionMultiplier}"
+	     connect-timeout="${mongo.connectTimeout}"
+	     max-wait-time="${mongo.maxWaitTime}"
+	     auto-connect-retry="${mongo.autoConnectRetry}"
+	     socket-keep-alive="${mongo.socketKeepAlive}"
+	     socket-timeout="${mongo.socketTimeout}"
+	     slave-ok="${mongo.slaveOk}"
+	     write-number="1"
+	     write-timeout="0"
+	     write-fsync="true"/>
+	</mongo:mongo>
+	
+	<mongo:db-factory dbname="database" mongo-ref="mongo"/>
+	
+	<bean id="anotherMongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+	  <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
+	</bean>     
+</beans>	
+
