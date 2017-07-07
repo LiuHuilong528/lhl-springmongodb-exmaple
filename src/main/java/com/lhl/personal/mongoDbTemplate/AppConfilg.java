@@ -15,11 +15,13 @@ public class AppConfilg {
 	}
 
 	/**
-	 * ³õÊ¼»¯ MongoTemplate MongoTemplate µÄ¹¹ÔìÆ÷ÓĞ¶àÖÖ£º<br/>
-	 * ´´½¨ MongoTemplateÊ±£¬ÆäËûµÄÑ¡Ïî£º<br/>
+	 * åˆå§‹åŒ– MongoTemplate MongoTemplate çš„æ„é€ å™¨æœ‰å¤šç§ï¼š<br/>
+	 * åˆ›å»º MongoTemplateæ—¶ï¼Œå…¶ä»–çš„é€‰é¡¹ï¼š<br/>
 	 * WriteResultCheckingPolicy,WriteConcern,ReadPreference<br/>
-	 * WriteResultCheckingPolicy ½ÓÊÕµ½moongoDB µÄÒì³£Ê±´¦Àí²ßÂÔ£ºLOG EXCEPTION NONE<br/>
-	 * WriteConcern ¿ØÖÆ WriteµÄÍ¨Öª-¸Ğ¾õÓëmongoDBÁ´½ÓÏà¹Ø´óµÄ£º0:²»µÈ·şÎñÆ÷ÏìÓ¦ 1:µÈ´ıÍ¨Öª£¬µ«ÊÇ²»µÈ´ı´Ó·şÎñÆ÷µÄ¸´ÖÆ
+	 * WriteResultCheckingPolicy æ¥æ”¶åˆ°moongoDB çš„å¼‚å¸¸æ—¶å¤„ç†ç­–ç•¥ï¼šLOG EXCEPTION NONE<br/>
+	 * WriteConcern æ§åˆ¶ Writeçš„é€šçŸ¥-æ„Ÿè§‰ä¸mongoDBé“¾æ¥ç›¸å…³å¤§çš„ï¼š0:ä¸ç­‰æœåŠ¡å™¨å“åº” 1:ç­‰å¾…é€šçŸ¥ï¼Œä½†æ˜¯ä¸ç­‰å¾…ä»æœåŠ¡å™¨çš„å¤åˆ¶
+	 * WriteConcernResolver - ä¸ºæ¯ä¸ªä¸åŒçš„æ“ä½œè®¾å®šä¸åŒçš„ WriteConcern <br/>
+	 * ReadPreference - è¯»å†™åˆ†ç¦»è®¾ç½®
 	 * 
 	 * @return
 	 * @throws Exception
@@ -27,4 +29,5 @@ public class AppConfilg {
 	public @Bean MongoTemplate mongoTemplate() throws Exception {
 		return new MongoTemplate(mongo(), "tm");
 	}
+
 }

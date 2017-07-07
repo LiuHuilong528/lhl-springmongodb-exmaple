@@ -11,7 +11,7 @@ import com.mongodb.MongoClient;
 //@Configuration
 public class PureMongoAPI  extends MongoJavaConfig{
 
-	//1 Ô­Éú MongoClient 
+	//1 åŽŸç”Ÿ MongoClient 
 	public @Bean Mongo mongo() throws UnknownHostException{
 		return new MongoClient("192.168.1.55",27018);
 	}

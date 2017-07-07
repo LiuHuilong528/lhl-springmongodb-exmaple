@@ -1,7 +1,7 @@
 package com.lhl.personal.appconfig;
 
 /**
- * ÔÚSpringÖĞÅäÖÃMongo 2ÖĞ·½Ê½£º
+ * åœ¨Springä¸­é…ç½®Mongo 2ä¸­æ–¹å¼ï¼š
  *  1. javaConfig {@link MongoJavaConfig}
  *  2. XML
  * @author datatoucher
@@ -11,10 +11,10 @@ public class MongoJavaConfig {
 
 	
 	/**
-	 * JAVAConfig 2 ÖĞ·½Ê½£º
-	 * 1.Ô­ÉúµÄ MongoClient() {@link PureMongoAPI}
-	 * 2.ÀûÓÃ{@link MongoClientFactoryBean} ·µ»ØMongoClient
-	 * 		¼û {@link FactoryBeanMongoAPI}
+	 * JAVAConfig 2 ä¸­æ–¹å¼ï¼š
+	 * 1.åŸç”Ÿçš„ MongoClient() {@link PureMongoAPI}
+	 * 2.åˆ©ç”¨{@link MongoClientFactoryBean} è¿”å›MongoClient
+	 * 		è§ {@link FactoryBeanMongoAPI}
 	 *
 	 */
 }

@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.MongoClientFactoryBean;
 
 public class FactoryBeanMongoAPI extends MongoJavaConfig {
 
-	// 2 ÀûÓÃMongoClientFactoryBean
+	// 2 åˆ©ç”¨MongoClientFactoryBean
 	public @Bean MongoClientFactoryBean mongo() {
 		MongoClientFactoryBean mongo = new MongoClientFactoryBean();
 		mongo.setHost("192.168.1.55");
